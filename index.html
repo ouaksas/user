@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row elems">
+
+        </div>
+
+    </div>
+
+    <div id="app" class="d-none">
+        <div class="col-md-4 p-2 item">
+            <div class="card">
+                <img class="card-img-top" src="" alt="image user">
+                <div class="card-body">
+                    <h1 class="card-title"></h1>
+                    <p class="card-text"></p>
+                    <button class="btn btn-success btn-block">BTN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="users.js"></script>
+    <script>
+        (function showTable() {
+            users.forEach((elem) => {
+                let card = document.querySelector('#app .item').cloneNode(true);
+                (card.querySelector('img')).setAttribute('src', elem.img_url);
+                (card.querySelector('h1')).innerHTML = `<b>${elem.name}</b>`;
+                (card.querySelector('p')).innerText = elem.bio;
+                document.querySelector('.container .elems').append(card);
+                (card.querySelector('button')).addEventListener('click', () => {
+                    alert(elem.name)
+                });
+            });
+        })();
+
+    </script>
+
+</body>
+
+</html>

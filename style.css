@@ -1,0 +1,5 @@
+img:hover  {
+    opacity: 1;
+    transform: scale(1.04);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1)
+}
